@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require './lib/LowkeyCli.rb'
 
-puts "hello world"
+LowkeyCli::CLI.new.call #start
