@@ -19,12 +19,15 @@ class LowkeyCli::Sweatshirt
   end
 
   def self.lowkey_scrape_sweatshirt
-    doc = Nokogiri::HTML(open("https://www.lowkey.industries/shop/?category=Sweatshirts"))
-    name = doc.css(".ProductList-title")[0].text
-    price = doc.css(".product-price .sqs-money-native")[0].text
-    url = doc.css(".ProductList-grid.clear a[href]").attribute("href").value
 
-    binding.pry
+    doc = Nokogiri::HTML(open("https://www.lowkey.industries/shop/?category=Sweatshirts"))
+    sweatshirt = self.new
+    sweatshirt.name = doc.css(".ProductList-title")[0].text
+    sweatshirt.price = doc.css(".product-price .sqs-money-native")[0].text
+    sweatshirt.url = doc.css(".ProductList-grid.clear a[href]").attribute("href").value
+
+    sweatshirt
+
   end
 
 
