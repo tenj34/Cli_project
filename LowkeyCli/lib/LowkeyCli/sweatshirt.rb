@@ -10,7 +10,7 @@ class LowkeyCli::Sweatshirt
     # extract the properties from the first page
     # show info on the sweatshirts
 
-    sweatshirt = []
+    show_sweatshirt = []
 
     show_sweatshirt = self.lowkey_scrape_sweatshirt
 
@@ -18,7 +18,7 @@ class LowkeyCli::Sweatshirt
 
   end
 
-  def lowkey_scrape_sweatshirt
+  def self.lowkey_scrape_sweatshirt
 
   end
 

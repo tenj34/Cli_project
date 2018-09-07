@@ -17,6 +17,7 @@ class LowkeyCli::CLI
      |   |___ |  |_|  ||       ||     |_ |    ___||_     _|
      |       ||       ||   _   ||    _  ||   |___   |   |
      |_______||_______||__| |__||___| |_||_______|  |___|
+     EOF
 
     puts "Welcome to Lowkey ClI"
     puts "These are the sweatshirts available as of #{Date.today}."
