@@ -27,10 +27,12 @@ class LowkeyCli::CLI
   end
 
   def list_sweatshirts
+=begin
     @sweatshirt = LowkeyCli::Sweatshirt.today
     #@sweatshirt.attributes.each do |pieces|
       puts "#{@sweatshirt.name}"
     #end
+=end
   end
 
   def menu
