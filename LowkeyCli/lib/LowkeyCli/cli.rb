@@ -1,3 +1,4 @@
+
 # CLI Controller
 require 'date'
 
@@ -21,15 +22,15 @@ class LowkeyCli::CLI
      |_______||_______||__| |__||___| |_||_______|  |___|
      EOF
 
-    puts "Welcome to Lowkey CLI"
+    puts "Welcome to Lowkey CLI".colorize(:light_blue)
     puts "These are the sweatshirts available as of #{Date.today}."
   end
 
   def list_sweatshirts
     @sweatshirt = LowkeyCli::Sweatshirt.today
-    @sweatshirt.each.with_index(1) do |piece,i|
-      puts "#{i}. #{piece.name}, #{piece.price}"
-    end
+    #@sweatshirt.attributes.each do |pieces|
+      puts "#{@sweatshirt.name}"
+    #end
   end
 
   def menu
@@ -40,13 +41,22 @@ class LowkeyCli::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
+        # puts description
+        # puts price
         puts "hi"
       elsif input == "list"
         list_sweatshirts
+      elsif input == "exit"
+        puts "Exiting...".colorize(:red)
       else
         puts "Incorrect input, please try again!"
       end
     end
+  end
+
+  def sweatshirt_detail
+    #details about sweatshirt
+
   end
 
   def goodbye
