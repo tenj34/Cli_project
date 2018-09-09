@@ -33,6 +33,11 @@ class LowkeyCli::CLI
       puts "#{@sweatshirt.name}"
     #end
 =end
+    LowkeyCli::Scraper.new.create_sweatshirts
+
+    LowkeyCli::Sweatshirt.all.each do |pieces|
+      puts "#{pieces.price}"
+    end
   end
 
   def menu

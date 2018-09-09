@@ -5,13 +5,15 @@ class LowkeyCli::Scraper
   end
 
   def scrape_sweatshirts
-    get_page.css = (".ProductList-grid.clear")
+    get_page.css(".ProductList-grid.clear")
   end
 
   def create_sweatshirts
-    scrape_sweatshirt.each do |sweatshirt_html|
-      LowkeyCli::Sweatshirt.new_sweathshirt_html(sweatshirt_html)
+    scrape_sweatshirts.each do |sweatshirt_html|
+      LowkeyCli::Sweatshirt.new_sweatshirt_html(sweatshirt_html)
     end
+    LowkeyCli::Sweatshirt.all
   end
+
 
 end

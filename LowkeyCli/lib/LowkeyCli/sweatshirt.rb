@@ -1,21 +1,28 @@
 class LowkeyCli::Sweatshirt
   attr_accessor :name, :url, :price, :description
 
-  def initialize
+  @@all = []
+
+  def initialize(name = nil, url= nil, price = nil) # nil
     @name = name
-    @url = url
     @price = price
-    @description = description
+    @url = url
+    @@all << self
   end
 
-  def self.new_sweathshirt_html(sweatshirt_html)
+  def self.new_sweatshirt_html(sweatshirt_html)
     # go to Lowkey
     # extract the properties from the first page
     # show info on the sweatshirts
+
     self.new(
-      sweatshirt.name = doc.css(".ProductList-title").text
-      sweatshirt.price = doc.css(".product-price").text
-      sweatshirt.url = doc.css(".ProductList-grid.clear a[href]").attribute("href").value
-    )
+      sweatshirt_html.css(".ProductList-title")[0].text,
+      sweatshirt_html.css(".product-price").text,
+      sweatshirt_html.css(".ProductList-grid.clear a[href]").text
+      )
+  end
+
+  def self.all
+    @@all
   end
 end
