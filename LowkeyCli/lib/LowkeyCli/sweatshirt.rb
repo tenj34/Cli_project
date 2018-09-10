@@ -8,6 +8,7 @@ class LowkeyCli::Sweatshirt
     @price = price
     @url = url
     @@all << self
+
   end
 
   def self.new_sweatshirt_html(sweatshirt_html)
@@ -16,7 +17,7 @@ class LowkeyCli::Sweatshirt
     # show info on the sweatshirts
 
     self.new(
-      sweatshirt_html.css(".ProductList-title")[0].text,
+      sweatshirt_html.css(".ProductList-title").text,
       sweatshirt_html.css(".product-price").text,
       sweatshirt_html.css(".ProductList-grid.clear a[href]").text
       )
@@ -24,5 +25,9 @@ class LowkeyCli::Sweatshirt
 
   def self.all
     @@all
+  end
+
+  def save
+    @@all << self
   end
 end
