@@ -7,8 +7,7 @@ class LowkeyCli::Sweatshirt
     @name = name
     @price = price
     @url = url
-    @@all << self
-
+    save
   end
 
   def self.new_sweatshirt_html(sweatshirt_html)
