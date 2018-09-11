@@ -34,9 +34,9 @@ class LowkeyCli::CLI
     #end
 =end
     LowkeyCli::Scraper.new.create_sweatshirts
-    
+
     sweatshirt = LowkeyCli::Sweatshirt.all
-    sweatshirt.each.with_index(1) {|pieces,i| puts "#{pieces.name}"}
+    sweatshirt.each.with_index(1) {|pieces,i| puts "#{pieces.name}, #{pieces.price}, #{pieces.url}"}
 
 =begin
     LowkeyCli::Sweatshirt.all.each do |pieces|

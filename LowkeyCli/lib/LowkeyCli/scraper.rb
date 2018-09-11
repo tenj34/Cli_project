@@ -5,7 +5,7 @@ class LowkeyCli::Scraper
   end
 
   def scrape_sweatshirts
-    get_page.css(".ProductList-grid.clear")
+    get_page.css(".ProductList-item")
   end
 
   def create_sweatshirts

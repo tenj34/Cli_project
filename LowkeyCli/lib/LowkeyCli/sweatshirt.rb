@@ -14,11 +14,10 @@ class LowkeyCli::Sweatshirt
     # go to Lowkey
     # extract the properties from the first page
     # show info on the sweatshirts
-
     self.new(
       sweatshirt_html.css(".ProductList-title").text,
       sweatshirt_html.css(".product-price").text,
-      sweatshirt_html.css(".ProductList-grid.clear a[href]").text
+      sweatshirt_html.css("a").attribute('href').value
       )
   end
 
