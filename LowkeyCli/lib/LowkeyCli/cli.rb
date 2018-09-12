@@ -24,32 +24,22 @@ class LowkeyCli::CLI
 
     puts "Welcome to Lowkey CLI".colorize(:light_blue)
     puts "These are the sweatshirts available as of #{Date.today}."
+    puts " "
   end
 
   def list_sweatshirts
-=begin
-    @sweatshirt = LowkeyCli::Sweatshirt.today
-    #@sweatshirt.attributes.each do |pieces|
-      puts "#{@sweatshirt.name}"
-    #end
-=end
     LowkeyCli::Scraper.new.create_sweatshirts
 
     sweatshirt = LowkeyCli::Sweatshirt.all
-    sweatshirt.each.with_index(1) {|pieces,i| puts "#{pieces.name}, #{pieces.price}, #{pieces.url}"}
-
-=begin
-    LowkeyCli::Sweatshirt.all.each do |pieces|
-      puts "#{pieces.name}"
-    end
-=end
+    sweatshirt.each.with_index(1) {|pieces,i| puts "#{i}. #{pieces.name}, $#{pieces.price}"}
   end
 
   def menu
     input = nil
 
     while input != "exit"
-      puts "Enter the number of the sweatshirt you'd like more info on or type exit or type list:"
+      puts " "
+      puts "Enter the number of the sweatshirt you'd like more info on or type 'exit' or type 'list':"
       input = gets.strip.downcase
 
       if input.to_i > 0

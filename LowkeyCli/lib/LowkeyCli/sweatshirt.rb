@@ -16,9 +16,9 @@ class LowkeyCli::Sweatshirt
     # show info on the sweatshirts
     self.new(
       sweatshirt_html.css(".ProductList-title").text,
-      sweatshirt_html.css(".product-price").text,
-      sweatshirt_html.css("a").attribute('href').value
-      )
+      sweatshirt_html.css("a").attribute('href').value,
+      sweatshirt_html.css(".product-price").text.strip
+    )
   end
 
   def self.all
