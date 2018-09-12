@@ -5,6 +5,7 @@ require 'date'
 class LowkeyCli::CLI
 
   def call
+    build_sweatshirt
     greetings
     list_sweatshirts
     menu
@@ -28,8 +29,6 @@ class LowkeyCli::CLI
   end
 
   def list_sweatshirts
-    LowkeyCli::Scraper.new.create_sweatshirts
-
     sweatshirt = LowkeyCli::Sweatshirt.all
     sweatshirt.each.with_index(1) {|pieces,i| puts "#{i}. #{pieces.name}, $#{pieces.price}"}
   end
@@ -47,6 +46,7 @@ class LowkeyCli::CLI
         # puts price
         puts "hi"
       elsif input == "list"
+        puts " "
         list_sweatshirts
       elsif input == "exit"
         puts "Exiting...".colorize(:red)
@@ -54,6 +54,10 @@ class LowkeyCli::CLI
         puts "Incorrect input, please try again!"
       end
     end
+  end
+
+  def build_sweatshirt
+    LowkeyCli::Scraper.new.create_sweatshirts
   end
 
   def sweatshirt_detail
