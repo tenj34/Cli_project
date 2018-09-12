@@ -42,9 +42,10 @@ class LowkeyCli::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        # puts description
-        # puts price
-        puts "hi"
+        choice = LowkeyCli::Sweatshirt.find_by_index(input.to_i-1) # 1
+        puts "Going to ... https://www.lowkey.industries/shop#{choice.url}"
+        doc2 = Nokogiri::HTML(open("https://www.lowkey.industries/shop#{choice.url}"))
+        
       elsif input == "list"
         puts " "
         list_sweatshirts
