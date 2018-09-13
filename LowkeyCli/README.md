@@ -1,24 +1,13 @@
 # LowkeyCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/LowkeyCli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This small CLI will scrape information from a clothing website called Lowkey Industries. It will provide information on the sweatshirts that are available.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'LowkeyCli'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install LowkeyCli
+1) Fork the project
+2) Clone the project
+3) Make sure that you are in 'LowkeyCli' directory
+4) Type './bin/LowkeyCli'
 
 ## Usage
 
