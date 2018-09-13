@@ -44,10 +44,14 @@ class LowkeyCli::CLI
       if input.to_i > 0
         choice = LowkeyCli::Sweatshirt.find_by_index(input.to_i-1) # 1
         puts "Going to ... https://www.lowkey.industries#{choice.url}".colorize(:light_blue)
+
         doc2 = Nokogiri::HTML(open("https://www.lowkey.industries#{choice.url}"))
         sweatshirt_details = doc2.css(".ProductItem-details-excerpt").text
-        puts "#{sweatshirt_details}"
-        
+        sweatshirt_sizes = doc2.css(".variant-select-wrapper").text.strip
+        puts "\n#{sweatshirt_details}"
+        puts "\n#{sweatshirt_sizes}"
+
+
       elsif input == "list"
         puts " "
         list_sweatshirts
