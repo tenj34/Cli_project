@@ -32,6 +32,4 @@ class LowkeyCli::Sweatshirt
   def self.find_by_index(index)
     @@all[index]
   end
-
-
 end

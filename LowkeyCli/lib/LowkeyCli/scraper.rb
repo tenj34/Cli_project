@@ -12,8 +12,5 @@ class LowkeyCli::Scraper
     scrape_sweatshirts.each do |sweatshirt_html|
       LowkeyCli::Sweatshirt.new_sweatshirt_html(sweatshirt_html)
     end
-    LowkeyCli::Sweatshirt.all
   end
-
-
 end
