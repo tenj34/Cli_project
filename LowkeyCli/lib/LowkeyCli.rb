@@ -1,4 +1,5 @@
 #Environment
+require 'date'
 require 'nokogiri'
 require 'open-uri'
 require 'pry'

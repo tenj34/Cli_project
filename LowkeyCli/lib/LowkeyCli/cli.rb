@@ -1,7 +1,5 @@
 
 # CLI Controller
-require 'date'
-
 class LowkeyCli::CLI
 
   def call
@@ -41,15 +39,14 @@ class LowkeyCli::CLI
       puts "Enter the number of the sweatshirt you'd like more info on or type 'exit' or type 'list':"
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i <= LowkeyCli::Sweatshirt.all.count
         choice = LowkeyCli::Sweatshirt.find_by_index(input.to_i-1) # 1
         puts "Going to ... https://www.lowkey.industries#{choice.url}".colorize(:light_blue)
-
-        doc2 = Nokogiri::HTML(open("https://www.lowkey.industries#{choice.url}"))
-        sweatshirt_details = doc2.css(".ProductItem-details-excerpt").text
-        sweatshirt_sizes = doc2.css(".variant-select-wrapper").text.strip
-        puts "\n#{sweatshirt_details}"
-        puts "\n#{sweatshirt_sizes}"
+        if #check to see if the scraper has already scraped.
+          LowkeyCli::Scraper.scrape_details(choice)
+        end
+        puts "\n#{choice.details}"
+        puts "\n#{choice.sizes}"
 
 
       elsif input == "list"
