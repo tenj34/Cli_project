@@ -42,9 +42,11 @@ class LowkeyCli::CLI
       if input.to_i > 0 && input.to_i <= LowkeyCli::Sweatshirt.all.count
         choice = LowkeyCli::Sweatshirt.find_by_index(input.to_i-1) # 1
         puts "Going to ... https://www.lowkey.industries#{choice.url}".colorize(:light_blue)
-        if #check to see if the scraper has already scraped.
+
+        if choice.details == nil && choice.sizes == nil#check to see if the scraper has already scraped.
           LowkeyCli::Scraper.scrape_details(choice)
         end
+
         puts "\n#{choice.details}"
         puts "\n#{choice.sizes}"
 
@@ -63,12 +65,7 @@ class LowkeyCli::CLI
   def build_sweatshirt
     LowkeyCli::Scraper.new.create_sweatshirts
   end
-
-  def sweatshirt_detail
-    #details about sweatshirt
-
-  end
-
+  
   def goodbye
     puts "Thanks for using LowkeyCli"
   end
